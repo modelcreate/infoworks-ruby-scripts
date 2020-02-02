@@ -8,7 +8,7 @@ A collection of useful Ruby scripts to help automate the building, calibrating a
 
 <img src="https://raw.githubusercontent.com/modelcreate/infoworks-ruby-scripts/master/imgs/DownloadZip.png" alt="placeholder" height="150" align="right"/>
 
-The simpliest way to get all the scripts is to download the whole collection as a zip from GitHub.
+The simplest way to get all the scripts is to download the whole collection as a zip from GitHub.
 
 Click `Clone or download` and then `Download Zip`.
 
