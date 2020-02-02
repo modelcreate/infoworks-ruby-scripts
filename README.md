@@ -14,7 +14,7 @@ If you have an idea for a script that you want developed, please open an issue o
 
 ## List of scripts
 
-| Name                    | Purpose                                                                 | Difficulty |
-| ----------------------- | ----------------------------------------------------------------------- | ---------- |
-| Open Data Import Centre | Automate the import multiple of shape files, including filtering assets | Easy       |
-| Demand Allocation       | Allocate customer points to the nearest pipe                            | Hard       |
+| Name                                                                                                                         | Purpose                                                                 | Difficulty |
+| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------- |
+| [Open Data Import Centre](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/open_data_import_centre) | Automate the import multiple of shape files, including filtering assets | Easy       |
+| [Demand Allocation](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/demand_allocation)             | Allocate customer points to the nearest pipe                            | Hard       |
