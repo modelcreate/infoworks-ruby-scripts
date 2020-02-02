@@ -10,7 +10,7 @@ Allocates customers within a selected polygon to any pipes with the same area co
 
 The scripts are documented though a user guide will come soon.
 
-- **demand_allocation.rb** - Main script that run in InfoWorks, loops through customers in a polygon and passes to the Allocator module
+- **[demand_allocation.rb](https://github.com/modelcreate/infoworks-ruby-scripts/blob/master/scripts/demand_allocation/demand_allocation.rb)** - Main script that runs in InfoWorks, loops through customers in a polygon and passes to the Allocator module
 - **lib\customer_allocation\allocator.rb** - Module to allocate a single customer point
 - **lib\customer_allocation\spatial.rb** - Spatial functions to help find the closest point on a pipe to a customer
 
