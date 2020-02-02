@@ -2,15 +2,17 @@
 
 A collection of useful Ruby scripts to help automate the building, calibrating and running of models in InfoWorks.
 
-> **Have a script to share?**: Submit a pull request, open an issue or send me an email - luke@matrado.ca
+> **Have a script to share?** Submit a pull request, [open an issue](https://github.com/modelcreate/infoworks-ruby-scripts/issues) or send me an email - luke@matrado.ca
 
 ## Downloading and using scripts
+
+<img src="https://raw.githubusercontent.com/modelcreate/infoworks-ruby-scripts/master/imgs/DownloadZip.png" alt="placeholder" height="200" align="right"/>
 
 The simpliest way to get all the scripts is to download the whole collection as a zip from GitHub. Click `Clone or download` and then `Download Zip`
 
 ## Suggest a new script
 
-If you have an idea for a script that you want developed, please open an issue or send me an email - luke@matrado.ca
+If you have an idea for a script that you want developed, please [open an issue](https://github.com/modelcreate/infoworks-ruby-scripts/issues) or send me an email - luke@matrado.ca
 
 ## List of scripts
 
