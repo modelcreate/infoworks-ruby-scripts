@@ -1,6 +1,6 @@
 # Allocating customer points with Ruby
 
-<img src="https://raw.githubusercontent.com/modelcreate/infoworks-ruby-scripts/master/imgs/CustomerAllocation.png" alt="placeholder" height="150" align="right"/>
+<img src="https://raw.githubusercontent.com/modelcreate/infoworks-ruby-scripts/master/imgs/CustomerAllocation.png" alt="placeholder" height="220" align="right"/>
 
 Customer demand allocation Ruby script for InfoWorks WS Pro.
 
