@@ -1,3 +1,8 @@
+# Turf.js methods intersects & nearest_point_on_line 
+# converted from JavaScript to Ruby
+# https://turfjs.org/
+# https://github.com/Turfjs/turf
+
 module CustomerAllocation
   module Spatial
     def self.intersects(line_one, line_two)
