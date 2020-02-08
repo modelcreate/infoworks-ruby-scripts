@@ -22,5 +22,6 @@ If you have an idea for a script that you want developed, please [open an issue]
 
 | Name                                                                                                                         | Purpose                                                                 |
 | ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [Modify Network Data](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/modify_network_data)         | Update pipe diameters based on information in the user text fields      |
 | [Open Data Import Centre](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/open_data_import_centre) | Automate the import multiple of shape files, including filtering assets |
 | [Demand Allocation](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/demand_allocation)             | Allocate customer points to the nearest pipe                            |
