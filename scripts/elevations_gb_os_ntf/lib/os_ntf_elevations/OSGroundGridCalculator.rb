@@ -1,4 +1,4 @@
-require 'iwp_build/os_ntf_elevations/BilinearInterpolation'
+require 'os_ntf_elevations/BilinearInterpolation'
 
 class OSGroundGridCalculator
 
