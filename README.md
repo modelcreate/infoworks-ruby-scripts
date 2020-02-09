@@ -29,8 +29,8 @@ Each of these scripts will only complete a single task and the code within will 
 | Name                                                                                                                    | Purpose                                                                                                            |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | [Modify Network Data](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/modify_network_data)    | Update pipe diameters based on information in the user text fields                                                 |
-| [Create Network Objects](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/modify_network_data) | Create new network objects                                                                                         |
-| [Modify Structured Data](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/modify_network_data) | Update structured data, these fields are displayed as tables within InfoWorks, such as depth/volume for reservoirs |
+| [Create Network Objects](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/create_network_objects) | Create new network objects                                                                                         |
+| [Modify Structured Data](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/modify_structured_data) | Update structured data, these fields are displayed as tables within InfoWorks, such as depth/volume for reservoirs |
 
 ### Intermediate
 
