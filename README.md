@@ -26,9 +26,11 @@ If you are a beginner and just learning Ruby these scripts can be used as a refe
 
 Each of these scripts will only complete a single task and the code within will be commented to provide context for those not familiar with coding in Ruby.
 
-| Name                                                                                                                 | Purpose                                                            |
-| -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| [Modify Network Data](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/modify_network_data) | Update pipe diameters based on information in the user text fields |
+| Name                                                                                                                    | Purpose                                                                                                            |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| [Modify Network Data](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/modify_network_data)    | Update pipe diameters based on information in the user text fields                                                 |
+| [Create Network Objects](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/modify_network_data) | Create new network objects                                                                                         |
+| [Modify Structured Data](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/modify_network_data) | Update structured data, these fields are displayed as tables within InfoWorks, such as depth/volume for reservoirs |
 
 ### Intermediate
 
