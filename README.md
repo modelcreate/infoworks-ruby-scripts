@@ -34,6 +34,7 @@ Each of these scripts will only complete a single task and the code within will 
 | [Set Material Using Lookup](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/material_lookup)     | Update material field on pipes using a Ruby hash as a lookup table                                                 |
 | [Expand Short Links](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/expand_short_links)         | Expands links to be a minimum size                                                                                 |
 | [Trace Network](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/trace_network)                   | From a single pipe, use Ruby to trace a distribution network finding pipes of the same size or smaller             |
+| [Validate Network](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/network_validations)          | Run a network validation from Ruby                                                                                 |
 
 ### Intermediate
 
