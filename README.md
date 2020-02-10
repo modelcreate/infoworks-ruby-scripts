@@ -42,9 +42,10 @@ Intermediate scripts attempt to automate realistic modelling tasks using Ruby. T
 
 Config variables are generally added to the top of the script to allow some level of customisation and running the scripts directly by the end-user with minimal modification.
 
-| Name                                                                                                                         | Purpose                                                                 |
-| ---------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [Open Data Import Centre](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/open_data_import_centre) | Automate the import multiple of shape files, including filtering assets |
+| Name                                                                                                                                 | Purpose                                                                 |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| [Open Data Import Centre](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/open_data_import_centre)         | Automate the import multiple of shape files, including filtering assets |
+| [Demand Allocation - Exchange](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/exchange_demand_allocation) | Allocate customer points using Exchange                                 |
 
 ### Complex
 
@@ -52,4 +53,4 @@ Config variables are generally added to the top of the script to allow some leve
 | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [Convert Network to GeoJSON](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/to_geojson)                          | Converts an InfoWorks network or simulation into a GeoJSON file                              |
 | [ Set elevations using Ordnance Survey NTF](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/elevations_gb_os_ntf) | Calculate the elevation of point objects within Great Britain using Ordance Survey NTF files |
-| [Demand Allocation](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/demand_allocation)                            | Allocate customer points to the nearest pipe                                                 |
+| [Demand Allocation - Custom](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/demand_allocation)                   | Allocate customer points to the nearest pipe                                                 |
