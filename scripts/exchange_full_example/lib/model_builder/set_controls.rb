@@ -4,11 +4,13 @@ module ModelBuilder
     def self.run(open_net, open_control)
       closed_valves = open_net.row_objects('wn_valve').select {|v| v.user_text_1 == "CLOSED"}
       prvs = open_net.row_objects('wn_valve').select {|v| v.user_text_5 == "PRESSURE REDUCING"}
+      live_meters = open_net.row_objects('wn_meter').select {|v| v.billing_id.nil? == false}
 
       open_control.transaction_begin
 
       closed_valves.each {|cv| create_closed_valve(cv, open_control) }
       prvs.each {|cv| create_prv(cv, open_control) }
+      live_meters.each {|m| create_meter(m, open_control) }
 
       open_control.transaction_commit
 
@@ -46,6 +48,16 @@ module ModelBuilder
       ctrl_row.control_node = valve.ds_node_id
       ctrl_row.pressure = 999
   
+      ctrl_row.write
+
+    end
+
+    def self.create_meter(meter, open_ctrl)
+      ctrl_row = open_ctrl.new_row_object("wn_ctl_meter")
+
+      set_ids(meter, ctrl_row)
+
+      ctrl_row.live_data_point_id = meter.billing_id
       ctrl_row.write
 
     end
