@@ -1,6 +1,7 @@
 # Create and run a model from raw data using Infoworks Exchange.
 #
 # * Import raw data using the ODIC
+# * Exapand short links
 # * Set elevations
 # * Create controls
 # * Create live data config
@@ -35,10 +36,14 @@ err_file = shp_dir + '\errors.txt'
 script_file = cfg_dir + '\odic_script.bas'
 
 layers = {
-    "hydrant" => { "cfg" => cfg_dir + '\hydrant.cfg', "shp" => shp_dir + '\water_hydrant.shp'},
-    #"valve" => { "cfg" => cfg_dir + '\valve.cfg', "shp" => shp_dir + '\valves.shp'},
+    "hydrant" => [{ "cfg" => cfg_dir + '\hydrant.cfg', "shp" => shp_dir + '\water_hydrant.shp'}],
+    "valve" => [{ "cfg" => cfg_dir + '\valve.cfg', "shp" => shp_dir + '\water_valve.shp'}],
     #"polygons" => { "cfg" => cfg_dir + '\polygons.cfg',  "shp" => shp_dir + '\dma.shp' },
-    #"pipe" => { "cfg" => cfg_dir + '\pipe.cfg', "shp" => shp_dir + '\mains.shp' }
+    "pipe" => [
+        { "cfg" => cfg_dir + '\pipe.cfg', "shp" => shp_dir + '\water_mains.shp' },
+        { "cfg" => cfg_dir + '\hydrant_lead.cfg', "shp" => shp_dir + '\water_hydrant_leads.shp'}
+    ]
+    #"pipe" => { "cfg" => cfg_dir + '\hydrant_leads.cfg', "shp" => shp_dir + '\water_hydrant_leads.shp' }
 }
 
 ModelBuilder::ODIC::import_data(moGeometry, layers, script_file, err_file)
