@@ -52,7 +52,11 @@ moGeometry.commit "Import with ODIC"
 
 open_network = moGeometry.open
 ModelBuilder::ExpandLinks::run(open_network)
+puts "Expanded Short Links"
 
 moGeometry.commit "Expanded Short Links"
 
+ModelBuilder::SetElevations::run(db, open_network)
+puts "Set Elevation"
 
+moGeometry.commit "Set Elevation"
