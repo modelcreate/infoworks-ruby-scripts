@@ -50,30 +50,9 @@ ModelBuilder::ODIC::import_data(moGeometry, layers, script_file, err_file)
 
 moGeometry.commit "Import with ODIC"
 
+open_network = moGeometry.open
+ModelBuilder::ExpandLinks::run(open_network)
 
-
-
-#puts "Creating demand diagram group and importing ddg file"
-#moDDG = model_group.new_model_object("Demand Diagram Group", "Demand Diagram Group"+ prefix)
-#moDemandDiagram = moDDG.import_demand_diagram(script_dir+"\\example_demands.ddg")
-#
-#options = {
-#  "allocate_demand_unallocated" => true,
-#  "ignore_reservoirs" => true,
-#  "max_dist_along_pipe_native" => 100,
-#  "max_dist_to_pipe_native" => 100,
-#  "max_distance_steps" => 10,
-#  "max_pipe_diameter_native" => 500,
-#  "use_nearest_pipe" => true
-#}
-#
-#puts "Running Demand Allocation"
-#
-#net = moGeometry.open
-#DemandAllocation = WSDemandAllocation.new()
-#DemandAllocation.network = net
-#DemandAllocation.demand_diagram = moDemandDiagram
-#DemandAllocation.options = options 
-#DemandAllocation.allocate()
+moGeometry.commit "Expanded Short Links"
 
 

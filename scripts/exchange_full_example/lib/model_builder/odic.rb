@@ -13,9 +13,9 @@ module ModelBuilder
       end
                                                                                   
       # Open the error log and output to console
-      File.readlines(err_file).each do |line|
-          puts line
-      end
+      #File.readlines(err_file).each do |line|
+      #    puts line
+      #end
 
       puts "Finished Import"
 
