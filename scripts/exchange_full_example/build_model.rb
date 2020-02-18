@@ -27,7 +27,7 @@ model_group = db.new_model_object("Catchment Group", "ModelBuild_" + prefix )
 
 puts "Creating network and import using ODIC"
 moGeometry = model_group.new_model_object("Geometry", "Network_" + prefix)
-
+moControl = model_group.new_model_object("Control", "Network_" + prefix)
 
 # Prompt user for a folder
 shp_dir = script_path + '\source_data'
@@ -60,3 +60,10 @@ ModelBuilder::SetElevations::run(db, open_network)
 puts "Set Elevation"
 
 moGeometry.commit "Set Elevation"
+
+
+open_control = moControl.open
+ModelBuilder::SetControls::run(open_network, open_control)
+puts "Set Controls"
+
+moControl.commit "Set Controls"
