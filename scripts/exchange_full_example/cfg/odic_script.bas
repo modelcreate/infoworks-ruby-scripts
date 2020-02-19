@@ -24,7 +24,9 @@ end sub
 
 public sub OnBeginRecordValve
 
-	if Importer.Field("operation") = "Abandoned" Then
+	if Importer.Field("FUNCTION_") = "DRAIN" or _
+	   Importer.Field("FUNCTION_") = "BLOWOFF" or _
+	   Importer.Field("FUNCTION_") = "AIR RELEASE" Then
 		Importer.WriteRecord = false
 	end if
     

@@ -39,6 +39,7 @@ script_file = cfg_dir + '\odic_script.bas'
 
 layers = {
     "hydrant" => [{ "cfg" => cfg_dir + '\hydrant.cfg', "shp" => shp_dir + '\water_hydrant.shp'}],
+    "fixedhead" => [{ "cfg" => cfg_dir + '\fixed_head.cfg', "shp" => shp_dir + '\water_treatment_works.shp'}],
     "valve" => [{ "cfg" => cfg_dir + '\valve.cfg', "shp" => shp_dir + '\water_valve.shp'}],
     "customerpoint" => [{ "cfg" => cfg_dir + '\customer.cfg', "shp" => shp_dir + '\addresses.shp'}],
     "meter" => [{ "cfg" => cfg_dir + '\meter.cfg', "shp" => shp_dir + '\water_meter.shp'}],
@@ -88,20 +89,23 @@ puts "Importing Demand Diagram"
 options = {
   "allocate_demand_unallocated" => true,
   "ignore_reservoirs" => true,
-  "max_dist_along_pipe_native" => 100,
-  "max_dist_to_pipe_native" => 100,
+  "max_dist_along_pipe_native" => 500,
+  "max_dist_to_pipe_native" => 500,
   "max_distance_steps" => 10,
   "max_pipe_diameter_native" => 500,
+  "max_properties_per_node" => 200,
+  "only_to_nearest_node" => false,
   "use_nearest_pipe" => true
 }
 
-#puts "Running Demand Allocation (This may take a few minutes)"
-#
-#net = moGeometry.open
-#DemandAllocation = WSDemandAllocation.new()
-#DemandAllocation.network = open_network
-#DemandAllocation.demand_diagram = moDemandDiagram
-#DemandAllocation.options = options 
-#DemandAllocation.allocate()
-#
-#puts "Demand Allocation Complete"
+puts "Running Demand Allocation (This may take a few minutes)"
+
+net = moGeometry.open
+DemandAllocation = WSDemandAllocation.new()
+DemandAllocation.network = open_network
+DemandAllocation.demand_diagram = moDemandDiagram
+DemandAllocation.options = options 
+DemandAllocation.allocate()
+
+moGeometry.commit "Customer Demand Allocation"
+puts "Demand Allocation Complete"
