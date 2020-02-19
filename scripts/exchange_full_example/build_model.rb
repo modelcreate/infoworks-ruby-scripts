@@ -100,7 +100,6 @@ options = {
 
 puts "Running Demand Allocation (This may take a few minutes)"
 
-net = moGeometry.open
 DemandAllocation = WSDemandAllocation.new()
 DemandAllocation.network = open_network
 DemandAllocation.demand_diagram = moDemandDiagram
@@ -109,3 +108,39 @@ DemandAllocation.allocate()
 
 moGeometry.commit "Customer Demand Allocation"
 puts "Demand Allocation Complete"
+
+puts "Validating Network"
+vals = open_network.validate
+puts "Error count: #{vals.error_count}"
+puts "Warning count: #{vals.warning_count}"
+
+
+puts "Creating Simulation"
+moRunGroup = model_group.new_model_object("Wesnet Run Group", "Runs")
+run_group_id = moRunGroup.id
+
+run_scheduler = WSRunScheduler.new()
+
+run_options = {
+  'ro_l_run_type' => 0,
+  'ro_s_run_title' => 'Scripted Run',
+  'ro_l_geometry_id' =>  moGeometry.id,
+  'ro_l_demand_diagram_id' => moDemandDiagram.id,
+  'ro_l_control_id' => moControl.id,
+  'ro_dte_end_date_time' => DateTime.new(2020,1,2,0,0,0),
+  'ro_dte_start_date_time' => DateTime.new(2020,1,1,0,0,0)
+}
+
+run_scheduler.create_new_run(run_group_id)
+run_scheduler.set_parameters(run_options)
+
+run_scheduler.validate(script_dir + '\validation_error.txt')
+run_scheduler.save(false)
+
+
+run = run_scheduler.get_run_mo()
+
+puts "Starting simulation...."
+run.run()
+
+puts "Simulation Finished"
