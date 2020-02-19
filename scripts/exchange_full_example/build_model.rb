@@ -39,13 +39,13 @@ script_file = cfg_dir + '\odic_script.bas'
 layers = {
     "hydrant" => [{ "cfg" => cfg_dir + '\hydrant.cfg', "shp" => shp_dir + '\water_hydrant.shp'}],
     "valve" => [{ "cfg" => cfg_dir + '\valve.cfg', "shp" => shp_dir + '\water_valve.shp'}],
+    "customerpoint" => [{ "cfg" => cfg_dir + '\customer.cfg', "shp" => shp_dir + '\addresses.shp'}],
     "meter" => [{ "cfg" => cfg_dir + '\meter.cfg', "shp" => shp_dir + '\water_meter.shp'}],
     #"polygons" => { "cfg" => cfg_dir + '\polygons.cfg',  "shp" => shp_dir + '\dma.shp' },
     "pipe" => [
         { "cfg" => cfg_dir + '\pipe.cfg', "shp" => shp_dir + '\water_mains.shp' },
         { "cfg" => cfg_dir + '\hydrant_lead.cfg', "shp" => shp_dir + '\water_hydrant_leads.shp'}
     ]
-    #"pipe" => { "cfg" => cfg_dir + '\hydrant_leads.cfg', "shp" => shp_dir + '\water_hydrant_leads.shp' }
 }
 
 ModelBuilder::ODIC::import_data(moGeometry, layers, script_file, err_file)

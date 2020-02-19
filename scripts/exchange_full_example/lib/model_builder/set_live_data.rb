@@ -32,8 +32,6 @@ module ModelBuilder
         ldc_row.source_file = source_file
         ldc_row.write
 
-        puts ldc_row.methods
-
       end
 
 
