@@ -7,7 +7,7 @@ module ModelBuilder
       # Expanding will only work on select objects
       # Clear the existing selection and select all valves in model
       net.clear_selection
-      net.row_objects('wn_valve').each do |ro|
+      net.row_objects('_links').each do |ro|
         ro.selected = true
       end
 
@@ -16,12 +16,12 @@ module ModelBuilder
 
       # These settings match those found in the UI
       expand_settings = {
-        'Expansion threshold' => 2.0,
-        'Minimum resultant length' => 1.0,
+        'Expansion threshold' => 0.2,
+        'Minimum resultant length' => 0.2,
         'Protect connection points' => false,
         'Recalculate Length' => true,
         'Use user flag' => true,
-        'Tables' =>['wn_valve'], # Array of all tables you wish to expand
+        'Tables' =>['wn_valve','wn_meter'], # Array of all tables you wish to expand
         'Flag' => '#A'
       }
 

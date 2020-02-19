@@ -5,12 +5,14 @@ module ModelBuilder
       closed_valves = open_net.row_objects('wn_valve').select {|v| v.user_text_1 == "CLOSED"}
       prvs = open_net.row_objects('wn_valve').select {|v| v.user_text_5 == "PRESSURE REDUCING"}
       live_meters = open_net.row_objects('wn_meter').select {|v| v.billing_id.nil? == false}
+      fixed_heads = open_net.row_objects('wn_fixed_head')
 
       open_control.transaction_begin
 
       closed_valves.each {|cv| create_closed_valve(cv, open_control) }
       prvs.each {|cv| create_prv(cv, open_control) }
       live_meters.each {|m| create_meter(m, open_control) }
+      fixed_heads.each {|fh| create_fixed_head(fh, open_control) }
 
       open_control.transaction_commit
 
@@ -61,6 +63,17 @@ module ModelBuilder
       ctrl_row.write
 
     end
+
+    def self.create_fixed_head(fh, open_ctrl)
+      ctrl_row = open_ctrl.new_row_object("wn_ctl_fixed_head")
+
+      ctrl_row.node_id = fh.node_id
+      ctrl_row.fixed_level = fh.user_number_1
+      ctrl_row.write
+
+    end
+
+    
 
   end
 end
