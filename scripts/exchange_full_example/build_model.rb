@@ -29,6 +29,7 @@ puts "Creating network and import using ODIC"
 moGeometry = model_group.new_model_object("Geometry", "Network_" + prefix)
 moControl = model_group.new_model_object("Control", "Ctrl_" + prefix)
 moLDC = model_group.new_model_object("Wesnet Live Data", "LDC_" + prefix)
+moDDG = model_group.new_model_object("Demand Diagram Group", "DDG_" + prefix)
 
 # Prompt user for a folder
 shp_dir = script_path + '\source_data'
@@ -43,7 +44,7 @@ layers = {
     "meter" => [{ "cfg" => cfg_dir + '\meter.cfg', "shp" => shp_dir + '\water_meter.shp'}],
     #"polygons" => { "cfg" => cfg_dir + '\polygons.cfg',  "shp" => shp_dir + '\dma.shp' },
     "pipe" => [
-        { "cfg" => cfg_dir + '\pipe.cfg', "shp" => shp_dir + '\water_mains.shp' },
+        { "cfg" => cfg_dir + '\pipe.cfg', "shp" => shp_dir + '\water_mains_presplit.shp' },
         { "cfg" => cfg_dir + '\hydrant_lead.cfg', "shp" => shp_dir + '\water_hydrant_leads.shp'}
     ]
 }
@@ -78,3 +79,29 @@ puts "Set Live Data Config"
 
 moLDC.commit "Set Live Data Config"
 
+
+# Todo, make this dynamic
+demand_diagram = script_dir + '\source_data\demand_diagram\Demand Diagram.ddg'
+moDemandDiagram = moDDG.import_demand_diagram(demand_diagram)
+puts "Importing Demand Diagram"
+
+options = {
+  "allocate_demand_unallocated" => true,
+  "ignore_reservoirs" => true,
+  "max_dist_along_pipe_native" => 100,
+  "max_dist_to_pipe_native" => 100,
+  "max_distance_steps" => 10,
+  "max_pipe_diameter_native" => 500,
+  "use_nearest_pipe" => true
+}
+
+#puts "Running Demand Allocation (This may take a few minutes)"
+#
+#net = moGeometry.open
+#DemandAllocation = WSDemandAllocation.new()
+#DemandAllocation.network = open_network
+#DemandAllocation.demand_diagram = moDemandDiagram
+#DemandAllocation.options = options 
+#DemandAllocation.allocate()
+#
+#puts "Demand Allocation Complete"
