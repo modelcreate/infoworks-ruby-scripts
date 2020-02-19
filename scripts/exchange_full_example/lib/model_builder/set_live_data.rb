@@ -8,6 +8,7 @@ module ModelBuilder
   
         open_ldc.transaction_begin
   
+        puts " - Live data points"
         live_meters.each {|m| create_live_data_point(m, open_ldc,live_data_folder) }
   
         open_ldc.transaction_commit

@@ -3,10 +3,12 @@ require 'FileUtils'
 module ModelBuilder
   module ODIC
     def self.import_data(open_net, layers, script_file, err_file)
-        
+      
+      puts "Importing layer: " 
       layers.each do | layer, files |
 
         files.each do |config|
+          puts " - #{File.basename(config["shp"])} as #{layer}"
           use_odic(open_net, layer, config["shp"], config["cfg"], script_file, err_file)
         end
 
@@ -17,7 +19,8 @@ module ModelBuilder
       #    puts line
       #end
 
-      puts "Finished Import"
+      puts "Finished import"
+      puts ""
 
     end
 
@@ -26,7 +29,6 @@ module ModelBuilder
 
     def self.use_odic(open_net, layer, shp, cfg, script_file, err_file)
 
-      puts "Importing IW layer: #{layer}"
 
       # If the file to import doesnt exist then skip over it
       if File.exist?( shp ) == false

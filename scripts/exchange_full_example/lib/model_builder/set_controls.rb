@@ -9,9 +9,13 @@ module ModelBuilder
 
       open_control.transaction_begin
 
+      puts " - Closed valve"
       closed_valves.each {|cv| create_closed_valve(cv, open_control) }
+      puts " - Pressure reducing valves"
       prvs.each {|cv| create_prv(cv, open_control) }
+      puts " - Live data links"
       live_meters.each {|m| create_meter(m, open_control) }
+      puts " - Fixed heads"
       fixed_heads.each {|fh| create_fixed_head(fh, open_control) }
 
       open_control.transaction_commit

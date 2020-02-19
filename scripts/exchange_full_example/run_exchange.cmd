@@ -1,4 +1,4 @@
-echo off
+@echo off
 
 SET command="%~dp0build_model.rb"
 
