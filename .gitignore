@@ -56,3 +56,11 @@ build-iPhoneSimulator/
 # .rubocop-https?--*
 
 .DS_Store
+
+
+
+# infoworks-ruby-script specific
+#  exchange_full_example
+scripts/exchange_full_example/source_data/errors.txt
+
+
