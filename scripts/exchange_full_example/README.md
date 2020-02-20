@@ -1,4 +1,4 @@
-# Exchange Full Example
+# Exchange Full Model Build and Run Example
 
 Create and run a model from raw data in the command line using Infoworks Exchange.
 
