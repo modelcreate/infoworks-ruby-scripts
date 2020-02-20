@@ -54,3 +54,11 @@ Config variables are generally added to the top of the script to allow some leve
 | [Convert Network to GeoJSON](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/to_geojson)                          | Converts an InfoWorks network or simulation into a GeoJSON file                              |
 | [ Set elevations using Ordnance Survey NTF](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/elevations_gb_os_ntf) | Calculate the elevation of point objects within Great Britain using Ordance Survey NTF files |
 | [Demand Allocation - Custom](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/demand_allocation)                   | Allocate customer points to the nearest pipe                                                 |
+| [Exchange Full Model Build and Run Example](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/exchange_full_example)                   | Create and run a model from raw data in the command line using Infoworks Exchange.
+
+                                            |
+
+
+
+
+
