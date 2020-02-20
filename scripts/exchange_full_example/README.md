@@ -2,7 +2,24 @@
 
 Create and run a model from raw data in the command line using Infoworks Exchange.
 
+To use this script you must first [import the ground grid and create an inference](#import-ground-grid-and-inference), you can then run `run_exchange.bat`. This will create a new model in the current active master database.
+
 <img src="https://raw.githubusercontent.com/modelcreate/infoworks-ruby-scripts/master/imgs/exchange_e2e_demo.gif"/>
+
+## Steps completed within script
+
+- Creates model group and other tree objects within the master database
+- Imports raw GIS data and filters unwanted data
+- Expands valves and meters
+- Set elevations for nodes and customer points
+- Creates closed valves and PRVs
+- Sets a constant pressure at the fixed head
+- Assigns live data links to meters
+- Creates and sets live data configuration
+- Import demand diagrams
+- Allocates all customer points
+- Validates network
+- Creates and runs simulation
 
 ## Work in progress
 
@@ -23,7 +40,7 @@ The following limitations were found in developing a full build from scratch (as
 - Can not create inference, the master database will require this to be created manually and set for elevations
 - Demand diagrams can only be imported and not manually created, update from live data only works for direct profiles
 
-## Ground grid and inference for model
+## Import ground grid and inference
 
 Currently it is not possible to import ground grids in InfoWorks Exchange WS, you will need to import the ASCII grid file in this repo before you run this example.
 
