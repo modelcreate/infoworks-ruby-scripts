@@ -39,6 +39,7 @@ The following limitations were found in developing a full build from scratch (as
 - Can not import ground grid in WS, only supported in ICM, these need to be manually imported before this script can be ran
 - Can not create inference, the master database will require this to be created manually and set for elevations
 - Demand diagrams can only be imported and not manually created, update from live data only works for direct profiles
+- Can not split mains with points natively, the mains in this example were split at all valves, meters and tee intersections
 
 ## Import ground grid and inference
 
