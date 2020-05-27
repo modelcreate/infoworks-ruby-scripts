@@ -1,3 +1,18 @@
+<div style="margin: 1.5625em 0;
+    padding: 0 .6rem;
+    overflow: hidden;
+    color: var(--md-admonition-fg-color);
+    font-size: .64rem;
+    page-break-inside: avoid;
+    background-color: #ff1744;
+    border-left: .2rem solid #448aff;
+    border-radius: .1rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05), 0 0 0.05rem rgba(0,0,0,.1);
+"> <p style="background-color: rgba(255,23,68,.1);">Danger</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p> </div>
+
+
+
+
 # Infoworks Ruby Scripts
 
 A collection of useful Ruby scripts to help automate the building, calibrating and running of models in InfoWorks.
