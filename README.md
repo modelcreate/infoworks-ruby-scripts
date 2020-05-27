@@ -1,17 +1,7 @@
-<div style="margin: 1.5625em 0;
-    padding: 0 .6rem;
-    overflow: hidden;
-    color: var(--md-admonition-fg-color);
-    font-size: .64rem;
-    page-break-inside: avoid;
-    background-color: #ff1744;
-    border-left: .2rem solid #448aff;
-    border-radius: .1rem;
-    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05), 0 0 0.05rem rgba(0,0,0,.1);
-"> <p style="background-color: rgba(255,23,68,.1);">Danger</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p> </div>
+# Archived
+**I do not currently have a licence for InfoWorks WS Pro or InfoWorks Exchange to continue developing or supporting the use of these scripts.**
 
-
-
+**Please contact Innovyze Support (support@innovyze.com) if you have any questions on using Ruby with InfoWorks.**
 
 # Infoworks Ruby Scripts
 
