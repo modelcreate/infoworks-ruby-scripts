@@ -1,8 +1,3 @@
-# Archived
-**I do not currently have a licence for InfoWorks WS Pro or InfoWorks Exchange to continue developing or supporting the use of these scripts.**
-
-**Please contact Innovyze Support (support@innovyze.com) if you have any questions on using Ruby with InfoWorks.**
-
 # Infoworks Ruby Scripts
 
 A collection of useful Ruby scripts to help automate the building, calibrating and running of models in InfoWorks.
