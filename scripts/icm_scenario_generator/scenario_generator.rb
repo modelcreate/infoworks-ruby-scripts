@@ -75,7 +75,7 @@ end
 #   p_area_1 = 0.3     percolation_coefficient = 10 
 #   p_area_2 = 10 
 #
-def create_scenario(modifications)
+def create_scenario(modifications, net)
 
     scenario_name = create_scenario_name(modifications)
 
@@ -98,7 +98,7 @@ def create_scenario(modifications)
     end
 
     net.transaction_commit
-	net.validate(scenario)
+	net.validate(scenario_name)
 
 end
 
@@ -122,5 +122,5 @@ end
 # Loop through each unique combination of modification varables and create a scenario
 outputs.each_with_index do |x,i|
     puts "Scenario: #{i} - #{x.to_s}"
-    create_scenario(x)
+    create_scenario(x, net)
 end
