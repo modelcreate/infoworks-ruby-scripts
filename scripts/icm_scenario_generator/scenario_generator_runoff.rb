@@ -38,7 +38,7 @@ end
 net=WSApplication.current_network
 
 
-polygon_list = net.row_objects('hw_runoff_surface').select{ |n| n.surface_type == "Pervious"}.map { |n| [n.runoff_index,'BOOLEAN',false] }
+polygon_list = net.row_objects('hw_runoff_surface').select{ |n| n.surface_type == "Pervious"}.map { |n| [n.runoff_index.to_s,'BOOLEAN',false] }
 
 
 #arr = WSApplication.prompt(
