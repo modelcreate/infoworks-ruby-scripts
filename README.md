@@ -2,7 +2,7 @@
 
 A collection of useful Ruby scripts to help automate the building, calibrating and running of models in InfoWorks.
 
-For a complete, end-to-end example of building a model directly from GIS data, see the **[Automated GIS-Model Pipeline](./model-build/README.md)**.
+For a complete, end-to-end example of building a model directly from GIS data, see the **[Automated GIS-Model Pipeline](./model-build/)**.
 
 > **Have a script to share?** Submit a pull request, [open an issue](https://github.com/modelcreate/infoworks-ruby-scripts/issues) or send me an email - luke@matrado.ca
 
@@ -66,4 +66,4 @@ Config variables are generally added to the top of the script to allow some leve
 
 This is a complete, end-to-end example of a model build pipeline. It takes raw GIS data from a corporate utilities GIS system, cleans it, processes it, and builds a InfoWorks WS Pro model without any manual preprocessing. It serves as a reference for complex, multi-stage automation tasks.
 
-[**View the Full Project README**](./model-build/README.md)
+[**View the Full Project README**](./model-build/)
