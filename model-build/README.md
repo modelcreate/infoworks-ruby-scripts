@@ -1,6 +1,18 @@
-# Model Build Script
+# Automated GIS-to-Model Pipeline for InfoWorks WS Pro
 
-This document provides an overview of the model build script and its components. The primary purpose of this script is to automate the creation of a water network model by importing, processing, and enriching data from various sources. It is designed to be run from within the InfoWorks WS Pro environment.
+This document describes a script for a complete, automated water model build within InfoWorks WS Pro. It is designed to use data **directly from a corporate GIS system** without any prior data preprocessing. The script automates many of the time-consuming manual tasks involved in model creation, such as **filtering** out abandoned or proposed assets, **cleaning up data**, and **enriching the network** with calculated values. Beyond speeding up the model build, this automation ensures a **consistent and repeatable process** every time the model is updated.
+
+This script is intended as a template that should be **modified for your specific needs**, a process which should be relatively straightforward. Currently, the script is hardcoded to look for the following shapefiles:
+
+- `main_water_distribution.shp`
+- `hydrant.shp`
+- `w_wams_asset.shp`
+- `valve.shp`
+- `prv.shp`
+- `meter.shp`
+- `dma.shp`
+
+You will also need to update the configuration files in the `script_inc/cfg/` directory and the VBScript files in the `script_inc/callback/` directory to match the specific fields and logic required for your source data.
 
 The script is initiated by the user, who is prompted to select a folder containing the necessary import files. Once the folder is selected, the main process begins, which can be broken down into several key stages:
 
@@ -44,7 +56,6 @@ The entire process is designed to be modular, with different components of the f
   - `rename_nodes.rb`: This module provides a framework for renaming nodes in the network. It is an older implementation that has been largely superseded by the `NodeRename` class.
     - `rename_nodes/renamer.rb`: This class provides a base class for renaming nodes. It includes functionality to iterate through a collection of nodes, generate new IDs, and handle duplicates by appending a suffix.
     - `rename_nodes/xy.rb`: This class inherits from `Renamer` and implements the logic for renaming nodes based on their x and y coordinates.
-  - `version.rb`: [Description to be added]
 
 ### Script Includes
 
@@ -59,41 +70,13 @@ The entire process is designed to be modular, with different components of the f
     - `twp_node.cfg`: Configuration for TWP node import.
     - `valve_node.cfg`: Configuration for valve node import.
     - `wtw.cfg`: Configuration for WTW import.
-  - **`callback/`**: This directory contains VBScript files that are used as callbacks during the ODIC import process. These scripts can be used to perform custom data manipulation during the import.
-    - `hydrant_cb.bas`: VBScript callback for hydrant import.
-      - **OnBeginRecordHydrant**: Skips the import of hydrants with a `d_operatio` status of "Abandoned" or "Proposed".
-      - **OnEndRecordHydrant**: Sets the data flags for `construction_type`, `valve_diameter`, and `diameter` to "AV" (Assumed Value) and clears the flags for the x and y coordinates.
-    * `meter_node_cb.bas`: VBScript callback for meter node import.
-      - **OnBeginRecordNode**: Skips the import of meter nodes with a `d_operatio` of "Abandoned" or "Proposed", or a `d_type` of "Revenue" or "WET".
-      - **OnEndRecordNode**: Converts the diameter to a numeric value in millimeters and stores it in the `user_text_9` field.
-      - **DiameterToNum**: A helper function that converts diameter strings (e.g., "100mm", "4in", "4 1/2in") to numeric millimeter values.
-      - **InchToMM**: A helper function that converts inch values (including fractions) to millimeters.
-    * `pipe_cb.bas`: VBScript callback for pipe import.
-      - **OnBeginRecordPipe**: Skips the import of pipes with a `d_operatio` of "Abandoned" or "Proposed", or a `d_type` of "Overflow", "Sludge", or "Drain".
-      - **OnEndRecordPipe**: Performs several data cleaning and enrichment tasks, including converting the diameter to a numeric value, extracting the year laid, standardizing the material code, and calculating the internal diameter for PE pipes.
-      - **GetMaterialForIW**: Maps material descriptions from the source data to standardized InfoWorks material codes.
-      - **DiameterToNum**: Converts diameter strings (e.g., "100mm", "4in") to numeric millimeter values.
-      - **InchToMM**: A helper function that converts inch values (including fractions) to millimeters.
-      - **GetPeInternalDia**: Calculates the internal diameter of PE pipes based on their nominal diameter and pressure rating.
-      - **Pe10Bar** and **Pe16Bar**: Helper functions containing lookup tables for the internal diameters of 10 Bar and 16 Bar PE pipes.
-    * `polygon_cb.bas`: VBScript callback for polygon import.
-      - **OnEndRecordPolygons**: Sets the `user_number_10` field to the current year and clears the flag for the `polygon_id`.
-    * `prv_node_cb.bas`: VBScript callback for PRV node import.
-      - **OnBeginRecordNode**: Skips the import of PRV nodes with a `d_operatio` of "Abandoned" or "Proposed".
-      - **OnEndRecordNode**: Sets the `user_text_10` field to "PLUG" and converts the diameter to a numeric value in millimeters, storing it in the `user_text_9` field.
-      - **DiameterToNum**: A helper function that converts diameter strings (e.g., "100mm", "4in", "4 1/2in") to numeric millimeter values.
-      - **InchToMM**: A helper function that converts inch values (including fractions) to millimeters.
-    * `reservoir_cb.bas`: VBScript callback for reservoir import.
-      - **OnBeginRecordReservoir**: Skips the import of reservoirs based on a number of criteria, including if they are not of type "TWS", or if their status is "Abandoned", "Proposed", "Removed", "DECOMISSIONED", "REDUNDANT", "SOLD", or "MOTHBALLED".
-      - **OnEndRecordReservoir**: Clears the flags for the `node_id`, `x`, and `y` fields.
-    * `twp_node_cb.bas`: VBScript callback for TWP node import.
-      - **OnBeginRecordNode**: Skips the import of TWP nodes based on a number of criteria, including if they are not of type "TWP", or if their status is "Abandoned", "Proposed", "Removed", "DECOMISSIONED", "REDUNDANT", "SOLD", or "MOTHBALLED".
-      - **OnEndRecordReservoir**: This sub is empty and currently performs no action.
-    * `valve_node_cb.bas`: VBScript callback for valve node import.
-      - **OnBeginRecordNode**: Skips the import of valve nodes with a `d_operatio` of "Abandoned" or "Proposed".
-      - **OnEndRecordNode**: Converts the diameter to a numeric value in millimeters and sets the valve type based on the `d_type` and `d_mechanis` fields.
-      - **DiameterToNum**: A helper function that converts diameter strings (e.g., "100mm", "4in", "4 1/2in") to numeric millimeter values.
-      - **InchToMM**: A helper function that converts inch values (including fractions) to millimeters.
-    * `wtw_cb.bas`: VBScript callback for WTW import.
-      - **OnBeginRecordFixedHead**: Skips the import of WTW nodes based on a number of criteria, including if they are not of type "WTW", or if their status is "Abandoned", "Proposed", "Removed", "DECOMISSIONED", "REDUNDANT", "SOLD", or "MOTHBALLED".
-      - **OnEndRecordFixedHead**: This sub is empty and currently performs no action.
+  - **`callback/`**: This directory contains VBScript files used as callbacks during the ODIC import process to perform custom data manipulation.
+    - `hydrant_cb.bas`: Skips the import of abandoned or proposed hydrants and sets data flags.
+    - `meter_node_cb.bas`: Skips the import of abandoned, proposed, revenue, or WET meter nodes. It also converts diameters to a numeric value in millimeters, handling values in inches and fractions.
+    - `pipe_cb.bas`: Skips the import of abandoned, proposed, overflow, sludge, or drain pipes. It performs significant data cleaning, including converting diameters to numeric millimeter values (handling inches), standardizing material codes, extracting the year laid, and calculating the internal diameter for PE pipes based on pressure ratings.
+    - `polygon_cb.bas`: Sets a user field to the current year and manages data flags.
+    - `prv_node_cb.bas`: Skips the import of abandoned or proposed PRV nodes. It also converts diameters to numeric millimeter values and sets user-defined fields.
+    - `reservoir_cb.bas`: Skips the import of reservoirs that are not of type 'TWS' or have an inactive status (e.g., abandoned, proposed, sold). It also cleans up data flags on import.
+    - `twp_node_cb.bas`: Skips the import of TWP nodes that are not of type 'TWP' or have an inactive status (e.g., abandoned, proposed, sold).
+    - `valve_node_cb.bas`: Skips the import of abandoned or proposed valve nodes. It also converts diameters to numeric millimeter values (handling inches) and sets the valve type based on source data fields.
+    - `wtw_cb.bas`: Skips the import of WTW nodes that are not of type 'WTW' or have an inactive status (e.g., abandoned, proposed, sold).
