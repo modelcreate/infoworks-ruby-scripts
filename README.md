@@ -2,6 +2,8 @@
 
 A collection of useful Ruby scripts to help automate the building, calibrating and running of models in InfoWorks.
 
+For a complete, end-to-end example of building a model directly from GIS data, see the **[Automated GIS-Model Pipeline](./model-build/README.md)**.
+
 > **Have a script to share?** Submit a pull request, [open an issue](https://github.com/modelcreate/infoworks-ruby-scripts/issues) or send me an email - luke@matrado.ca
 
 ## Downloading and using scripts
@@ -57,3 +59,11 @@ Config variables are generally added to the top of the script to allow some leve
 | [ Set elevations using Ordnance Survey NTF](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/elevations_gb_os_ntf)      | Calculate the elevation of point objects within Great Britain using Ordance Survey NTF files |
 | [Demand Allocation - Custom](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/demand_allocation)                        | Allocate customer points to the nearest pipe                                                 |
 | [Exchange Full Model Build and Run Example](https://github.com/modelcreate/infoworks-ruby-scripts/tree/master/scripts/exchange_full_example)     | Create and run a model from raw data in the command line using Infoworks Exchange.           |
+
+---
+
+## Automated GIS-Model Pipeline for InfoWorks WS Pro
+
+This is a complete, end-to-end example of a model build pipeline. It takes raw GIS data from a corporate utilities GIS system, cleans it, processes it, and builds a InfoWorks WS Pro model without any manual preprocessing. It serves as a reference for complex, multi-stage automation tasks.
+
+[**View the Full Project README**](./model-build/README.md)
